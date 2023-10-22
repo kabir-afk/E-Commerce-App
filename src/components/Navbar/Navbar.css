@@ -1,0 +1,27 @@
+img {
+  max-width: 100%;
+}
+
+.navbar {
+  border: 2px solid blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+.navbar li {
+  margin-right: 1em;
+}
+
+.ml {
+  margin-left: auto;
+}
+
+.avatar {
+  border: 2px solid red;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+}/*# sourceMappingURL=Navbar.css.map */

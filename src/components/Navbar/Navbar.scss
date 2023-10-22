@@ -1,0 +1,30 @@
+img {
+    max-width: 100%;
+}
+
+@mixin flex() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar {
+    border: 2px solid blue;
+    @include flex();
+    list-style: none;
+
+    li {
+        margin-right: 1em;
+    }
+}
+
+.ml {
+    margin-left: auto;
+}
+
+.avatar {
+    border: 2px solid red;
+    border-radius: 100%;
+    @include flex();
+    width: 30%;
+}
