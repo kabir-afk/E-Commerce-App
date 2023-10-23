@@ -18,10 +18,13 @@ img {
 }
 
 .avatar {
-  border: 2px solid red;
   border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 30%;
+}
+.avatar:hover {
+  border: 2px solid hsl(26, 100%, 55%);
+  cursor: pointer;
 }/*# sourceMappingURL=Navbar.css.map */

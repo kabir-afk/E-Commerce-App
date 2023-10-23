@@ -1,3 +1,4 @@
+@import '../Variables/Variables.scss';
 img {
     max-width: 100%;
 }
@@ -23,8 +24,12 @@ img {
 }
 
 .avatar {
-    border: 2px solid red;
+    // border: 2px solid red;
     border-radius: 100%;
     @include flex();
     width: 30%;
+    &:hover{
+        border: 2px solid $Orange;
+        cursor: pointer;
+    }
 }
