@@ -1,4 +1,11 @@
 @import '../Variables/Variables.scss';
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
 img {
     max-width: 100%;
 }
@@ -10,26 +17,57 @@ img {
 }
 
 .navbar {
-    border: 2px solid blue;
-    @include flex();
+    // border: 2px solid blue;
+    border-bottom: 1px solid $Grayish-blue;
+    width: 80%;
+    margin: auto;
+    display: flex;
     list-style: none;
 
+    #logo {
+        margin-right: 2em;
+    }
+
     li {
-        margin-right: 1em;
+        color: $Dark-grayish-blue;
+        padding-bottom: 1.75em;
+
+        &:not(#avatar) {
+            margin-right: 1.25em;
+            padding-top: 1.5em;
+        }
+
+        &:not(.ml):hover:not(#avatar):hover:not(#logo):hover {
+            border-bottom: 3px solid $Orange;
+            cursor: pointer;
+            color: $Black;
+        }
+    }
+
+    #avatar {
+        padding-top: 0.75em;
     }
 }
 
 .ml {
     margin-left: auto;
 }
+.cart{
+    // border: 2px solid rebeccapurple;
+    &:hover{
+        cursor: pointer;
+        color: $Black;
+    }
+}
 
 .avatar {
     // border: 2px solid red;
     border-radius: 100%;
     @include flex();
-    width: 30%;
-    &:hover{
-        border: 2px solid $Orange;
+    width: 3em;
+
+    &:hover {
+        outline: 2px solid $Orange;
         cursor: pointer;
     }
 }
