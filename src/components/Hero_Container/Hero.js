@@ -49,8 +49,8 @@ function Hero() {
         <s>$250.00</s>
         <div className="flex">
           <div className="numOfItems">
-            <img src="images/icon-minus.svg" alt="minus-icon" /> 0
-            <img src="images/icon-plus.svg" alt="plus-icon" />
+            <button><img src="images/icon-minus.svg" alt="minus-icon" /></button> 0
+            <button><img src="images/icon-plus.svg" alt="plus-icon" /></button>
           </div>
           <button className="addToCart"><img src="images/icon-cart.svg" alt="cart-icon"/> Add to cart</button>
         </div>

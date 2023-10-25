@@ -8,6 +8,7 @@
 
 img {
     max-width: 100%;
+    max-height: 100%;
 }
 
 .hero-container {
@@ -25,10 +26,13 @@ img {
 }
 
 .product {
+    // border: 2px solid orange;
     margin-bottom: 1.5em;
-
+    height: 79%;
     img {
         border-radius: 20px;
+        height: 100%;
+        object-fit: cover;
     }
 }
 
@@ -64,7 +68,7 @@ img {
 .sneaker-description {
     // border: 2px solid purple;
     display: block;
-    width: 45%;
+    width: 42.5%;
 }
 
 h5 {
@@ -113,9 +117,16 @@ s {
 
 .flex {
     // border: 2px solid blue;
-    margin-top: 1em;
+    margin-top: 2em;
     display: flex;
     justify-content: space-between;
+}
+
+button{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .numOfItems {
@@ -128,10 +139,8 @@ s {
 }
 
 .addToCart {
-    width: 57.5%;
+    width: 55%;
     @include flex();
-    border: none;
-    outline: none;
     background-color: $Orange;
     font-family: inherit;
     color: $White;
