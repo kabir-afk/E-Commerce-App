@@ -1,0 +1,153 @@
+@import '../Variables/Variables.scss';
+
+@mixin flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    max-width: 100%;
+}
+
+.hero-container {
+    // border: 2px solid red;
+    width: 70%;
+    margin: 5em auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sneaker-preview {
+    // border: 2px solid purple;
+    display: block;
+    width: 45%;
+}
+
+.product {
+    margin-bottom: 1.5em;
+
+    img {
+        border-radius: 20px;
+    }
+}
+
+.thumbnail-flex {
+    // border: 2px solid red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.thumbnail {
+    width: 20%;
+    border-radius: 10px;
+    @include flex();
+
+    img {
+        border-radius: 10px;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        cursor: pointer;
+        opacity: 0.7;
+    }
+
+    // &:focus,
+    // &:active {
+    //     border: 2px solid $Orange;
+    // }
+}
+
+.sneaker-description {
+    // border: 2px solid purple;
+    display: block;
+    width: 45%;
+}
+
+h5 {
+    margin-top: 20%;
+    text-transform: uppercase;
+    color: $Orange;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+p {
+    color: $Dark-grayish-blue;
+}
+
+.price {
+    // border: 2px solid red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 32.5%;
+    margin-bottom: 0.75em;
+
+    h2 {
+        margin: 0%;
+        padding: 0%;
+    }
+
+}
+
+.discount {
+    font-weight: 700;
+    color: $Orange;
+    background-color: $Pale-orange;
+    padding: 0.25em;
+    border-radius: 5px;
+}
+
+s {
+    color: $Grayish-blue;
+    font-weight: 700;
+}
+
+.flex {
+    // border: 2px solid blue;
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.numOfItems {
+    width: 40%;
+    @include flex();
+    justify-content: space-between;
+    font-weight: 700;
+    background-color: $Light-grayish-blue;
+
+}
+
+.addToCart {
+    width: 57.5%;
+    @include flex();
+    border: none;
+    outline: none;
+    background-color: $Orange;
+    font-family: inherit;
+    color: $White;
+    font-weight: 700;
+
+    img {
+        // border: 2px solid green;
+        margin-right: 0.5em;
+        fill: $White;
+        width: 1.25rem;
+    }
+}
+
+.numOfItems,
+.addToCart {
+    border-radius: 10px;
+    padding: 1em;
+
+}

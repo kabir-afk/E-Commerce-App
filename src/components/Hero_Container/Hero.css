@@ -1,0 +1,129 @@
+img {
+  max-width: 100%;
+}
+
+.hero-container {
+  width: 70%;
+  margin: 5em auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sneaker-preview {
+  display: block;
+  width: 45%;
+}
+
+.product {
+  margin-bottom: 1.5em;
+}
+.product img {
+  border-radius: 20px;
+}
+
+.thumbnail-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.thumbnail {
+  width: 20%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.thumbnail img {
+  border-radius: 10px;
+}
+.thumbnail:hover, .thumbnail:focus, .thumbnail:active {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.sneaker-description {
+  display: block;
+  width: 45%;
+}
+
+h5 {
+  margin-top: 20%;
+  text-transform: uppercase;
+  color: hsl(26, 100%, 55%);
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+p {
+  color: hsl(219, 9%, 45%);
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 32.5%;
+  margin-bottom: 0.75em;
+}
+.price h2 {
+  margin: 0%;
+  padding: 0%;
+}
+
+.discount {
+  font-weight: 700;
+  color: hsl(26, 100%, 55%);
+  background-color: hsl(25, 100%, 94%);
+  padding: 0.25em;
+  border-radius: 5px;
+}
+
+s {
+  color: hsl(220, 14%, 75%);
+  font-weight: 700;
+}
+
+.flex {
+  margin-top: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.numOfItems {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  background-color: hsl(223, 64%, 98%);
+}
+
+.addToCart {
+  width: 57.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  background-color: hsl(26, 100%, 55%);
+  font-family: inherit;
+  color: hsl(0, 0%, 100%);
+  font-weight: 700;
+}
+.addToCart img {
+  margin-right: 0.5em;
+  fill: hsl(0, 0%, 100%);
+  width: 1.25rem;
+}
+
+.numOfItems,
+.addToCart {
+  border-radius: 10px;
+  padding: 1em;
+}/*# sourceMappingURL=Hero.css.map */
