@@ -152,6 +152,9 @@ button{
         fill: $White;
         width: 1.25rem;
     }
+    &:hover{
+        opacity: 0.75;
+    }
 }
 
 .numOfItems,

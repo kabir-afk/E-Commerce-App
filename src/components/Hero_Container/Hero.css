@@ -131,6 +131,9 @@ button {
   fill: hsl(0, 0%, 100%);
   width: 1.25rem;
 }
+.addToCart:hover {
+  opacity: 0.75;
+}
 
 .numOfItems,
 .addToCart {

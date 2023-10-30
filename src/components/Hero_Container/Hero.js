@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Hero.css";
 
 function Hero() {
+  let [numberOfItems, setNumberOfItems] = useState(0);
+  function increase() {
+    setNumberOfItems(numberOfItems++);
+  }
+  function decrease() {
+    if(numberOfItems == 0){
+      setNumberOfItems(0);
+    }
+    else{
+      setNumberOfItems(numberOfItems--);
+    }
+  }
   return (
     <div className="hero-container">
       <div className="sneaker-preview">
@@ -49,10 +61,17 @@ function Hero() {
         <s>$250.00</s>
         <div className="flex">
           <div className="numOfItems">
-            <button><img src="images/icon-minus.svg" alt="minus-icon" /></button> 0
-            <button><img src="images/icon-plus.svg" alt="plus-icon" /></button>
+            <button onClick={decrease}>
+              <img src="images/icon-minus.svg" alt="minus-icon" />
+            </button>{" "}
+            {numberOfItems}
+            <button onClick={increase}>
+              <img src="images/icon-plus.svg" alt="plus-icon" />
+            </button>
           </div>
-          <button className="addToCart"><img src="images/icon-cart.svg" alt="cart-icon"/> Add to cart</button>
+          <button className="addToCart">
+            <img src="images/icon-cart.svg" alt="cart-icon" /> Add to cart
+          </button>
         </div>
       </div>
     </div>
