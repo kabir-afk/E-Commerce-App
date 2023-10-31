@@ -5,14 +5,16 @@ function Hero() {
   let [numberOfItems, setNumberOfItems] = useState(0);
   let [prodImg, setProdImg] = useState("images/image-product-1.jpg");
   let [altOfProdImg, setAltOfProdImg] = useState("prod-1");
+  let [counter, setCounter] = useState(0);
+  
   function increase() {
-    setNumberOfItems(numberOfItems++);
+    setNumberOfItems(numberOfItems + 1);
   }
   function decrease() {
     if (numberOfItems === 0) {
       setNumberOfItems(0);
     } else {
-      setNumberOfItems(numberOfItems--);
+      setNumberOfItems(numberOfItems - 1);
     }
   }
   function changeImage(e) {
@@ -20,14 +22,64 @@ function Hero() {
     setAltOfProdImg(`prod-${e.target.id}`);
   }
 
+  const overlay = document.querySelector(".overlay");
+  const lightboxProducts = document.querySelectorAll(".lightbox-product");
+  
   function openLightboxGallery() {
-    console.log("hello world");
+    overlay.style.visibility = "visible";
   }
+  function closeLightboxGallery() {
+    overlay.style.visibility = "hidden";
+  }
+  function slideImage() {
+    lightboxProducts.forEach((lightboxProduct) => {
+      lightboxProduct.style.transform = `translateX(-${counter * 100}%)`;
+    });
+  }
+  function nextImage() {
+    setCounter(counter + 1);
+    if (counter === 4) {
+      setCounter(0);
+    } else {
+      slideImage();
+    }
+  }
+  function previousImage() {
+    setCounter(counter - 1);
+    if (counter === -1) {
+      setCounter(3);
+    } else {
+      slideImage();
+    }
+  }
+
   return (
     <div className="hero-container">
       <div className="overlay">
-        <div className="product">
-          <img src={prodImg} alt={altOfProdImg} />
+        <img
+          src="images/icon-close.svg"
+          alt="cross-icon"
+          onClick={closeLightboxGallery}
+        />
+        <button onClick={previousImage}>
+          <img src="images/icon-previous.svg" alt="previous-icon" />
+        </button>
+        <button onClick={nextImage}>
+          <img src="images/icon-next.svg" alt="next-icon" />
+        </button>
+        <div className="product-container">
+          <div className="lightbox-product">
+            <img src="images/image-product-1.jpg" alt="prod-1" />
+          </div>
+          <div className="lightbox-product">
+            <img src="images/image-product-2.jpg" alt="prod-2" />
+          </div>
+          <div className="lightbox-product">
+            <img src="images/image-product-3.jpg" alt="prod-3" />
+          </div>
+          <div className="lightbox-product">
+            <img src="images/image-product-4.jpg" alt="prod-4" />
+          </div>
         </div>
       </div>
       <div className="sneaker-preview">
