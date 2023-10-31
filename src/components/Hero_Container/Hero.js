@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import "./Hero.css";
 
-function Hero() {
+function Hero(props) {
   let [numberOfItems, setNumberOfItems] = useState(0);
   let [prodImg, setProdImg] = useState("images/image-product-1.jpg");
   let [altOfProdImg, setAltOfProdImg] = useState("prod-1");
   let [counter, setCounter] = useState(0);
-  
+
+  const overlay = document.querySelector(".overlay");
+  const lightboxProducts = document.querySelectorAll(".lightbox-product");
+
   function increase() {
     setNumberOfItems(numberOfItems + 1);
   }
@@ -22,9 +25,6 @@ function Hero() {
     setAltOfProdImg(`prod-${e.target.id}`);
   }
 
-  const overlay = document.querySelector(".overlay");
-  const lightboxProducts = document.querySelectorAll(".lightbox-product");
-  
   function openLightboxGallery() {
     overlay.style.visibility = "visible";
   }
@@ -52,7 +52,7 @@ function Hero() {
       slideImage();
     }
   }
-
+  const finalItems = { numberOfItems };
   return (
     <div className="hero-container">
       <div className="overlay">
@@ -143,7 +143,10 @@ function Hero() {
               <img src="images/icon-plus.svg" alt="plus-icon" />
             </button>
           </div>
-          <button className="addToCart">
+          <button
+            className="addToCart"
+            onClick={() => props.addToCart({ numberOfItems })}
+          >
             <img src="images/icon-cart.svg" alt="cart-icon" /> Add to cart
           </button>
         </div>

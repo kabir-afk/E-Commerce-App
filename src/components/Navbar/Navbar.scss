@@ -51,13 +51,27 @@ img {
 
 .ml {
     margin-left: auto;
+    position: relative;
 }
-.cart{
+
+.cart {
     // border: 2px solid rebeccapurple;
-    &:hover{
+
+    &:hover {
         cursor: pointer;
         fill: $Black;
     }
+}
+
+.cart-items {
+    background-color: $Orange;
+    color: $White;
+    padding: 0.1em 1em;
+    font-size: 10px;
+    border-radius: 20px;
+    position: absolute;
+    top: 1.6em;
+    right: -15px;
 }
 
 .avatar {

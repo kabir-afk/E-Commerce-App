@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import Container from "../Hero_Container/Hero"
 import './App.css';
 function App() {
+  let[cartItems,setCartItems] = useState("");
+  const addToCart = (a) =>{
+    setCartItems(a.numberOfItems);
+  }
   return (
     <>
-    <Navbar></Navbar>
+    <Navbar cart = {cartItems}></Navbar>
     <main>
-      <Container></Container>
+      <Container addToCart = {addToCart}></Container>
     </main>
     </>
   );

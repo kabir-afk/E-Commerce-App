@@ -1,7 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 
-function Navbar() {
+function Navbar(props) {
   return (
     <header>
       <nav className="navbar">
@@ -14,7 +14,7 @@ function Navbar() {
         <li>About</li>
         <li>Contact</li>
         <li className="ml">
-          <img src="/images/icon-cart.svg" alt="cart-icon" className="cart"/>
+          <img src="/images/icon-cart.svg" alt="cart-icon" className="cart"/><span className="cart-items">{props.cart}</span>
         </li>
         <li id="avatar">
           <div className="avatar">
