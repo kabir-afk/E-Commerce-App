@@ -3,48 +3,70 @@ import "./Hero.css";
 
 function Hero() {
   let [numberOfItems, setNumberOfItems] = useState(0);
+  let [prodImg, setProdImg] = useState("images/image-product-1.jpg");
+  let [altOfProdImg, setAltOfProdImg] = useState("prod-1");
   function increase() {
     setNumberOfItems(numberOfItems++);
   }
   function decrease() {
-    if(numberOfItems == 0){
+    if (numberOfItems === 0) {
       setNumberOfItems(0);
-    }
-    else{
+    } else {
       setNumberOfItems(numberOfItems--);
     }
   }
+  function changeImage(e) {
+    setProdImg(`images/image-product-${e.target.id}.jpg`);
+    setAltOfProdImg(`prod-${e.target.id}`);
+  }
+
+  function openLightboxGallery() {
+    console.log("hello world");
+  }
   return (
     <div className="hero-container">
-      <div className="sneaker-preview">
+      <div className="overlay">
         <div className="product">
-          <img src="images/image-product-1.jpg" alt="prod-1" />
+          <img src={prodImg} alt={altOfProdImg} />
+        </div>
+      </div>
+      <div className="sneaker-preview">
+        <div className="product" onClick={openLightboxGallery}>
+          <img src={prodImg} alt={altOfProdImg} />
         </div>
         <div className="thumbnail-flex">
-          <div className="thumbnail">
+          <button className="thumbnail">
             <img
               src="images/image-product-1-thumbnail.jpg"
               alt="product-1-thumbnail"
+              id="1"
+              onClick={changeImage}
             />
-          </div>
-          <div className="thumbnail">
+          </button>
+          <button className="thumbnail">
             <img
               src="images/image-product-2-thumbnail.jpg"
               alt="product-2-thumbnail"
+              id="2"
+              onClick={changeImage}
             />
-          </div>
-          <div className="thumbnail">
+          </button>
+          <button className="thumbnail">
             <img
               src="images/image-product-3-thumbnail.jpg"
               alt="product-3-thumbnail"
+              id="3"
+              onClick={changeImage}
             />
-          </div>
-          <div className="thumbnail">
+          </button>
+          <button className="thumbnail">
             <img
               src="images/image-product-4-thumbnail.jpg"
               alt="product-4-thumbnail"
+              id="4"
+              onClick={changeImage}
             />
-          </div>
+          </button>
         </div>
       </div>
       <div className="sneaker-description">
