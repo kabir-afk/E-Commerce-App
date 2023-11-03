@@ -3,7 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import Container from "../Hero_Container/Hero"
 import './App.css';
 function App() {
-  let[cartItems,setCartItems] = useState("");
+  let[cartItems,setCartItems] = useState(0);
   const addToCart = (a) =>{
     setCartItems(a.numberOfItems);
   }
