@@ -6,8 +6,8 @@ function Hero(props) {
   let [prodImg, setProdImg] = useState("images/image-product-1.jpg");
   let [altOfProdImg, setAltOfProdImg] = useState("prod-1");
   let [counter, setCounter] = useState(0);
+  let [hide, setHide] = useState("hide");
 
-  const overlay = document.querySelector(".overlay");
   const lightboxProducts = document.querySelectorAll(".lightbox-product");
 
   function increase() {
@@ -26,10 +26,10 @@ function Hero(props) {
   }
 
   function openLightboxGallery() {
-    overlay.style.visibility = "visible";
+    setHide("unhide");
   }
   function closeLightboxGallery() {
-    overlay.style.visibility = "hidden";
+    setHide("hide");
   }
   function slideImage() {
     lightboxProducts.forEach((lightboxProduct) => {
@@ -52,34 +52,35 @@ function Hero(props) {
       slideImage();
     }
   }
-  const finalItems = { numberOfItems };
   return (
     <div className="hero-container">
-      <div className="overlay">
+      <div className={`overlay ${hide}`}>
+        <div className="lightbox-flex">
         <img
           src="images/icon-close.svg"
           alt="cross-icon"
           onClick={closeLightboxGallery}
         />
-        <button onClick={previousImage}>
-          <img src="images/icon-previous.svg" alt="previous-icon" />
-        </button>
-        <button onClick={nextImage}>
-          <img src="images/icon-next.svg" alt="next-icon" />
-        </button>
-        <div className="product-container">
-          <div className="lightbox-product">
-            <img src="images/image-product-1.jpg" alt="prod-1" />
+          <button onClick={previousImage}>
+            <img src="images/icon-previous.svg" alt="previous-icon" />
+          </button>
+          <div className="product-container">
+            <div className="lightbox-product">
+              <img src="images/image-product-1.jpg" alt="prod-1" />
+            </div>
+            <div className="lightbox-product">
+              <img src="images/image-product-2.jpg" alt="prod-2" />
+            </div>
+            <div className="lightbox-product">
+              <img src="images/image-product-3.jpg" alt="prod-3" />
+            </div>
+            <div className="lightbox-product">
+              <img src="images/image-product-4.jpg" alt="prod-4" />
+            </div>
           </div>
-          <div className="lightbox-product">
-            <img src="images/image-product-2.jpg" alt="prod-2" />
-          </div>
-          <div className="lightbox-product">
-            <img src="images/image-product-3.jpg" alt="prod-3" />
-          </div>
-          <div className="lightbox-product">
-            <img src="images/image-product-4.jpg" alt="prod-4" />
-          </div>
+          <button onClick={nextImage}>
+            <img src="images/icon-next.svg" alt="next-icon" />
+          </button>
         </div>
       </div>
       <div className="sneaker-preview">

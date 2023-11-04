@@ -172,7 +172,6 @@ button {
 }
 
 .overlay {
-    visibility: hidden;
     width: 100%;
     height: 130vh;
     position: absolute;
@@ -182,20 +181,38 @@ button {
     background-color: hsla(0, 0%, 0%, 0.75);
 }
 
+.hide {
+    visibility: hidden;
+}
+
+.unhide {
+    visibility: visible;
+}
+
+.lightbox-flex {
+    // border: 2px solid white;
+    width: 550px;
+    height: 470px;
+    margin: 15vh auto;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
 .product-container {
     // border: 2px solid yellow;
-    margin: 15vh auto;
-    width: 35%;
-    height: 60%;
+    width: 90%;
+    height: 100%;
     display: flex;
-    overflow: hidden;
     position: relative;
+    overflow: hidden;
 
     .lightbox-product {
         position: absolute;
         width: 100%;
         height: 100%;
-        img{
+
+        img {
             border-radius: 20px;
         }
 
@@ -215,9 +232,9 @@ button {
 
 img[alt="cross-icon"] {
     position: absolute;
-    top: 12vh;
-    left: 67%;
-
+    top: -2em;
+    left: 90%;
+    z-index: 3;
     &:hover {
         cursor: pointer;
         color: $Orange;
@@ -227,20 +244,18 @@ img[alt="cross-icon"] {
 
 img[alt="next-icon"],
 img[alt="previous-icon"] {
-    // border: 2px solid yellowgreen;
-    position: absolute;
-    top: 35%;
+    position: relative;
     padding: 1em;
     border-radius: 100%;
     background: $White;
-    transform: translateY(-50%);
-    z-index: 3;
     cursor: pointer;
+    z-index: 3;
 }
 
-img[alt="next-icon"]{
-    left: 66%;
+img[alt="next-icon"] {
+    transform: translateX(-50%);
 }
-img[alt="previous-icon"]{
-    left: 31%;
+
+img[alt="previous-icon"] {
+    transform: translateX(50%);
 }
