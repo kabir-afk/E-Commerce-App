@@ -35,11 +35,18 @@ img {
   padding-top: 0.75em;
 }
 
+.logo {
+  width: 8.4rem;
+}
+
 .ml {
   margin-left: auto;
   position: relative;
 }
 
+.cart {
+  width: 1.5rem;
+}
 .cart:hover {
   cursor: pointer;
   fill: hsl(0, 0%, 0%);
@@ -60,7 +67,7 @@ img {
   width: 25%;
   position: absolute;
   top: 10%;
-  left: 75%;
+  left: 70%;
   background: hsl(0, 0%, 100%);
   padding: 1em;
   box-shadow: 0 0 15px hsl(220, 14%, 75%);
@@ -72,7 +79,7 @@ img {
 .checkout hr {
   border-color: hsl(220, 14%, 75%);
 }
-.checkout button {
+.checkout button:not(.dustbin) {
   width: 100%;
   border-radius: 10px;
   font-family: inherit;
@@ -80,6 +87,9 @@ img {
   padding: 1em;
   color: hsl(0, 0%, 100%);
   background-color: hsl(26, 100%, 55%);
+}
+.checkout button:not(.dustbin):hover {
+  opacity: 0.75;
 }
 
 .empty-cart {
