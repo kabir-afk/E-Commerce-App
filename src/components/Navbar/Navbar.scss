@@ -58,7 +58,7 @@ img {
             padding-top: 1.5em;
         }
 
-        &:not(.ml):hover:not(#avatar):hover:not(#logo):hover {
+        &:not(.ml):hover:not(#avatar):hover:not(#logo):hover:not(#hamburger-icon):hover {
             border-bottom: 3px solid $Orange;
             cursor: pointer;
             color: $Black;
@@ -119,7 +119,8 @@ img {
     background: $White;
     padding: 1em;
     box-shadow: 0 0 15px $Grayish-blue;
-    @include mobile(){
+
+    @include mobile() {
         padding: unset;
     }
 
@@ -136,14 +137,16 @@ img {
     span {
         color: $Black;
         font-weight: 700;
-        &:not(&:last-child){
+
+        &:not(&:last-child) {
             margin-left: 1em;
         }
     }
 
     hr {
         border-color: $Grayish-blue;
-        @include mobile(){
+
+        @include mobile() {
             margin: 1.75em auto;
         }
     }
@@ -160,7 +163,8 @@ img {
         &:hover {
             opacity: 0.75;
         }
-        @include mobile(){
+
+        @include mobile() {
             width: 90%;
             margin: 1em;
         }
@@ -187,7 +191,8 @@ img {
     // border: 2px solid purple;
     @include flex();
     justify-content: space-between;
-    @include mobile(){
+
+    @include mobile() {
         margin: 0 1em;
     }
 }
@@ -210,4 +215,53 @@ img {
         outline: 2px solid $Orange;
         cursor: pointer;
     }
+}
+
+#hamburger-icon {
+    // border: 2px solid lightsalmon;
+    position: absolute;
+    left: 0%;
+    margin-left: 1em;
+    z-index: 11;
+}
+
+.sidebar {
+    display: none;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 144vh;
+    padding: 0%;
+    background-color: hsla(0, 0%, 0%, 0.75);
+
+    @include mobile() {
+        display: block;
+    }
+}
+
+.sidebar-white-bg {
+    position: relative;
+    top: -1em;
+    width: 60%;
+    height: 100%;
+    background-color: $White;
+
+    p {
+        margin-left: 1em;
+        color: $Black;
+        font-weight: 700;
+
+        &:first-child {
+            padding-top: 5em;
+        }
+    }
+}
+
+.hide-sidebar {
+    visibility: hidden;
+}
+
+.unhide-sidebar {
+    visibility: visible;
 }
