@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import "./Navbar.css";
 
 function Navbar(props) {
-  const[isDelete,setIsDelete] = useState(false);
+  const [isDelete, setIsDelete] = useState(false);
   const [isCheckoutVisible, setCheckoutVisible] = useState("hide");
   let [isCartEmpty, setCartEmpty] = useState(<p>Your cart is empty</p>);
   const deleteItems = () => {
     // setCartEmpty(<p className="empty-cart">Your cart is empty</p>);
     setIsDelete(true);
-    console.log({isDelete});
+    console.log({ isDelete });
   };
   const toggleCheckout = () => {
     isCheckoutVisible === "hide"
@@ -26,7 +26,7 @@ function Navbar(props) {
               />
             </div>
             <div>
-              <p>Fall Limited Edtion Sneakers</p>
+              <p>Fall Limited Edition Sneakers</p>
               <p>
                 $125.00 x {props.cart}{" "}
                 <span>${(props.cart * 125.0).toFixed(2)}</span>
@@ -39,16 +39,22 @@ function Navbar(props) {
           <button>Checkout</button>
         </>
       );
-    } 
-    else if (props.cart === 0 || isDelete === true) {
+    } else if (props.cart === 0 || isDelete === true) {
       setCartEmpty(<p className="empty-cart">Your cart is empty</p>);
     }
   };
   return (
     <header>
       <nav className="navbar">
+        <li>
+          <div id="hamburger-icon">
+            <img src="images/icon-menu.svg" alt="hamburger-icon" />
+          </div>
+        </li>
         <li id="logo">
-          <div className="logo"><img src="/images/logo.svg" alt="sneakers-company-logo" /></div>
+          <div className="logo">
+            <img src="/images/logo.svg" alt="sneakers-company-logo" />
+          </div>
         </li>
         <li>Collections</li>
         <li>Men</li>
@@ -67,7 +73,7 @@ function Navbar(props) {
         </li>
         <li id="avatar">
           <div className="avatar">
-            <img src="/images/image-avatar.png" alt="avatar-image" />
+            <img src="/images/image-avatar.png" alt="avatar" />
           </div>
         </li>
       </nav>

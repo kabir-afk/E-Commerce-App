@@ -9,10 +9,22 @@ img {
   display: flex;
   justify-content: space-between;
 }
+@media screen and (max-width: 775px) {
+  .hero-container {
+    flex-direction: column;
+    width: 100%;
+    margin: 0%;
+  }
+}
 
 .sneaker-preview {
   display: block;
   width: 45%;
+}
+@media screen and (max-width: 775px) {
+  .sneaker-preview {
+    display: none;
+  }
 }
 
 .product {
@@ -57,6 +69,12 @@ img {
   display: block;
   width: 42.5%;
 }
+@media screen and (max-width: 775px) {
+  .sneaker-description {
+    width: 90%;
+    margin: auto;
+  }
+}
 
 h5 {
   margin-top: 20%;
@@ -64,6 +82,11 @@ h5 {
   color: hsl(26, 100%, 55%);
   letter-spacing: 2px;
   font-weight: 700;
+}
+@media screen and (max-width: 775px) {
+  h5 {
+    margin-top: 10%;
+  }
 }
 
 h1 {
@@ -73,17 +96,34 @@ h1 {
 p {
   color: hsl(219, 9%, 45%);
 }
+@media screen and (max-width: 775px) {
+  p {
+    line-height: 1.25em;
+    font-size: 15px;
+  }
+}
 
 .price {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   width: 32.5%;
   margin-bottom: 0.75em;
+}
+@media screen and (max-width: 775px) {
+  .price {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 .price h2 {
   margin: 0%;
   padding: 0%;
+}
+@media screen and (max-width: 775px) {
+  .price {
+    width: 100%;
+  }
 }
 
 .discount {
@@ -99,10 +139,21 @@ s {
   font-weight: 700;
 }
 
+.discount-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .flex {
   margin-top: 2em;
   display: flex;
   justify-content: space-between;
+}
+@media screen and (max-width: 775px) {
+  .flex {
+    flex-direction: column;
+  }
 }
 
 button {
@@ -122,6 +173,11 @@ button {
   font-weight: 700;
   background-color: hsl(223, 64%, 98%);
 }
+@media screen and (max-width: 775px) {
+  .numOfItems {
+    width: 100%;
+  }
+}
 
 .addToCart {
   width: 55%;
@@ -132,6 +188,11 @@ button {
   font-family: inherit;
   color: hsl(0, 0%, 100%);
   font-weight: 700;
+}
+@media screen and (max-width: 775px) {
+  .addToCart {
+    width: 100%;
+  }
 }
 .addToCart img {
   margin-right: 0.5em;
@@ -149,6 +210,7 @@ button {
 }
 
 .overlay {
+  border: 2px solid black;
   width: 100%;
   height: 130vh;
   position: absolute;
@@ -175,9 +237,20 @@ button {
   position: relative;
 }
 
+.sneaker-flex {
+  width: 100%;
+  height: 400px;
+  display: none;
+}
+@media screen and (max-width: 775px) {
+  .sneaker-flex {
+    display: block;
+  }
+}
+
 .product-container {
-  width: 90%;
-  height: 100%;
+  width: 100%;
+  height: 95%;
   display: flex;
   position: relative;
   overflow: hidden;
@@ -189,6 +262,11 @@ button {
 }
 .product-container .lightbox-product img {
   border-radius: 20px;
+}
+@media screen and (max-width: 775px) {
+  .product-container .lightbox-product img {
+    border-radius: 0;
+  }
 }
 .product-container .lightbox-product:nth-of-type(2) {
   left: 100%;
@@ -221,9 +299,22 @@ img[alt=previous-icon] {
   cursor: pointer;
   z-index: 3;
 }
+@media screen and (max-width: 775px) {
+  img[alt=next-icon],
+  img[alt=previous-icon] {
+    position: absolute;
+    top: 40%;
+  }
+}
 
 img[alt=next-icon] {
   transform: translateX(-50%);
+}
+@media screen and (max-width: 775px) {
+  img[alt=next-icon] {
+    left: 100%;
+    transform: translateX(-150%);
+  }
 }
 
 img[alt=previous-icon] {

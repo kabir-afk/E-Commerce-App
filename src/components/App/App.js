@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import Navbar from "../Navbar/Navbar";
-import Container from "../Hero_Container/Hero"
-import './App.css';
+import Container from "../Hero_Container/Hero";
+import "./App.css";
 function App() {
-  let[cartItems,setCartItems] = useState(0);
-  const addToCart = (a) =>{
+  let [cartItems, setCartItems] = useState(0);
+  const addToCart = (a) => {
     setCartItems(a.numberOfItems);
-  }
+  };
   return (
     <>
-    <Navbar cart = {cartItems}></Navbar>
-    <main>
-      <Container addToCart = {addToCart}></Container>
-    </main>
+      <Navbar cart={cartItems} />
+      <main>
+        <Container addToCart={addToCart}></Container>
+      </main>
     </>
   );
 }

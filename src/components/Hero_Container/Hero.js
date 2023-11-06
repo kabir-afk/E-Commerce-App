@@ -56,11 +56,11 @@ function Hero(props) {
     <div className="hero-container">
       <div className={`overlay ${hide}`}>
         <div className="lightbox-flex">
-        <img
-          src="images/icon-close.svg"
-          alt="cross-icon"
-          onClick={closeLightboxGallery}
-        />
+          <img
+            src="images/icon-close.svg"
+            alt="cross-icon"
+            onClick={closeLightboxGallery}
+          />
           <button onClick={previousImage}>
             <img src="images/icon-previous.svg" alt="previous-icon" />
           </button>
@@ -83,6 +83,30 @@ function Hero(props) {
           </button>
         </div>
       </div>
+
+      <div className="sneaker-flex">
+        <button onClick={previousImage}>
+          <img src="images/icon-previous.svg" alt="previous-icon" />
+        </button>
+        <button onClick={nextImage}>
+          <img src="images/icon-next.svg" alt="next-icon" />
+        </button>
+        <div className="product-container">
+          <div className="lightbox-product">
+            <img src="images/image-product-1.jpg" alt="prod-1" />
+          </div>
+          <div className="lightbox-product">
+            <img src="images/image-product-2.jpg" alt="prod-2" />
+          </div>
+          <div className="lightbox-product">
+            <img src="images/image-product-3.jpg" alt="prod-3" />
+          </div>
+          <div className="lightbox-product">
+            <img src="images/image-product-4.jpg" alt="prod-4" />
+          </div>
+        </div>
+      </div>
+
       <div className="sneaker-preview">
         <div className="product" onClick={openLightboxGallery}>
           <img src={prodImg} alt={altOfProdImg} />
@@ -131,9 +155,11 @@ function Hero(props) {
           the weather can offer.
         </p>
         <div className="price">
-          <h2>$125.00</h2> <span className="discount">50%</span>
+          <div className="discount-flex">
+            <h2>$125.00</h2> <span className="discount">50%</span>
+          </div>
+          <s>$250.00</s>
         </div>
-        <s>$250.00</s>
         <div className="flex">
           <div className="numOfItems">
             <button onClick={decrease}>

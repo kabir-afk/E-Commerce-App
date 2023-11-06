@@ -16,6 +16,13 @@ img {
     align-items: center;
 }
 
+@mixin mobile {
+
+    @media screen and (max-width:775px) {
+        @content
+    }
+}
+
 .navbar {
     // border: 2px solid blue;
     border-bottom: 1px solid $Grayish-blue;
@@ -24,6 +31,12 @@ img {
     display: flex;
     list-style: none;
 
+    @include mobile() {
+        width: 100%;
+        padding: 0 2em;
+        border-bottom: none;
+    }
+
     #logo {
         margin-right: 2em;
     }
@@ -31,6 +44,14 @@ img {
     li {
         color: $Dark-grayish-blue;
         padding-bottom: 1.75em;
+
+        &:first-child {
+            display: none;
+
+            @include mobile() {
+                display: block;
+            }
+        }
 
         &:not(#avatar) {
             margin-right: 1.25em;
@@ -42,15 +63,28 @@ img {
             cursor: pointer;
             color: $Black;
         }
+
+        @include mobile() {
+            &:not(#logo):not(#avatar):not(.ml):not(&:first-child) {
+                display: none;
+            }
+        }
+
     }
 
     #avatar {
         padding-top: 0.75em;
     }
 }
-.logo{
+
+#hamburger-icon {
+    width: 2rem;
+}
+
+.logo {
     width: 8.4rem;
 }
+
 .ml {
     margin-left: auto;
     position: relative;
@@ -58,7 +92,8 @@ img {
 
 .cart {
     // border: 2px solid rebeccapurple;
-width: 1.5rem;
+    width: 1.5rem;
+
     &:hover {
         cursor: pointer;
         fill: $Black;
@@ -77,7 +112,6 @@ width: 1.5rem;
 }
 
 .checkout {
-    // width: 22.5%;
     width: 25%;
     position: absolute;
     top: 10%;
@@ -85,13 +119,33 @@ width: 1.5rem;
     background: $White;
     padding: 1em;
     box-shadow: 0 0 15px $Grayish-blue;
+    @include mobile(){
+        padding: unset;
+    }
+
+    @include mobile() {
+        width: 90%;
+        height: 250px;
+        left: 10%;
+        transform: translateX(-5%);
+        z-index: 4;
+        border-radius: 10px;
+        box-shadow: none;
+    }
+
     span {
         color: $Black;
         font-weight: 700;
+        &:not(&:last-child){
+            margin-left: 1em;
+        }
     }
 
     hr {
         border-color: $Grayish-blue;
+        @include mobile(){
+            margin: 1.75em auto;
+        }
     }
 
     button:not(.dustbin) {
@@ -102,8 +156,13 @@ width: 1.5rem;
         padding: 1em;
         color: $White;
         background-color: $Orange;
-        &:hover{
+
+        &:hover {
             opacity: 0.75;
+        }
+        @include mobile(){
+            width: 90%;
+            margin: 1em;
         }
     }
 
@@ -128,11 +187,15 @@ width: 1.5rem;
     // border: 2px solid purple;
     @include flex();
     justify-content: space-between;
+    @include mobile(){
+        margin: 0 1em;
+    }
 }
 
 .checkout-thumbnail-img {
     width: 17.5%;
-    img{
+
+    img {
         border-radius: 7px;
     }
 }
