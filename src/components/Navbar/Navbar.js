@@ -6,6 +6,7 @@ function Navbar(props) {
   const [isCheckoutVisible, setCheckoutVisible] = useState("hide");
   let [isCartEmpty, setCartEmpty] = useState(<p>Your cart is empty</p>);
   let [hamburgerIcon, setIconTo] = useState("menu");
+  let [alt, setAlt] = useState("hamburger-icon");
   let[sideBarWidth,setSideBarWidth] = useState('hide-sidebar');
   const deleteItems = () => {
     // setCartEmpty(<p className="empty-cart">Your cart is empty</p>);
@@ -47,6 +48,7 @@ function Navbar(props) {
   };
   const changeIcon = () => {
     hamburgerIcon === "menu" ? setIconTo("close") : setIconTo("menu");
+    alt === "hamburger-icon" ? setAlt("cross-icon") : setAlt("hamburger-icon");
     sideBarWidth === 'hide-sidebar' ? setSideBarWidth('unhide-sidebar') : setSideBarWidth('hide-sidebar');
   };
   return (
@@ -54,7 +56,7 @@ function Navbar(props) {
       <nav className="navbar">
         <li>
           <button id="hamburger-icon" onClick={changeIcon}>
-            <img src={`images/icon-${hamburgerIcon}.svg`} />
+            <img src={`images/icon-${hamburgerIcon}.svg`} alt={alt}/>
           </button>
         </li>
         <li id="logo">
