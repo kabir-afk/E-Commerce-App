@@ -191,6 +191,7 @@ button {
 }
 @media screen and (max-width: 775px) {
   .addToCart {
+    margin-top: 1em;
     width: 100%;
   }
 }

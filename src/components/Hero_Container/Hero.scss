@@ -204,6 +204,7 @@ button {
     font-weight: 700;
 
     @include mobile() {
+        margin-top: 1em;
         width: 100%;
     }
 
