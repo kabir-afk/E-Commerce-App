@@ -61,7 +61,7 @@ function Navbar(props) {
         </li>
         <li id="logo">
           <div className="logo">
-            <img src="/images/logo.svg" alt="sneakers-company-logo" />
+            <img src="images/logo.svg" alt="sneakers-company-logo" />
           </div>
         </li>
         <li>Collections</li>
@@ -72,7 +72,7 @@ function Navbar(props) {
         <li className="ml">
           <div className="cart">
             <img
-              src="/images/icon-cart.svg"
+              src="images/icon-cart.svg"
               alt="cart-icon"
               onClick={toggleCheckout}
             />
@@ -81,7 +81,7 @@ function Navbar(props) {
         </li>
         <li id="avatar">
           <div className="avatar">
-            <img src="/images/image-avatar.png" alt="avatar" />
+            <img src="images/image-avatar.png" alt="avatar" />
           </div>
         </li>
       </nav>
