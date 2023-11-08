@@ -53,37 +53,39 @@ function Navbar(props) {
   };
   return (
     <header>
-      <nav className="navbar">
-        <li>
-          <button id="hamburger-icon" onClick={changeIcon}>
-            <img src={`images/icon-${hamburgerIcon}.svg`} alt={alt}/>
-          </button>
-        </li>
-        <li id="logo">
-          <div className="logo">
-            <img src="images/logo.svg" alt="sneakers-company-logo" />
-          </div>
-        </li>
-        <li>Collections</li>
-        <li>Men</li>
-        <li>Women</li>
-        <li>About</li>
-        <li>Contact</li>
-        <li className="ml">
-          <div className="cart">
-            <img
-              src="images/icon-cart.svg"
-              alt="cart-icon"
-              onClick={toggleCheckout}
-            />
-          </div>
-          <span className="cart-items">{props.cart}</span>
-        </li>
-        <li id="avatar">
-          <div className="avatar">
-            <img src="images/image-avatar.png" alt="avatar" />
-          </div>
-        </li>
+      <nav>
+        <ul className="navbar">
+          <li>
+            <button id="hamburger-icon" onClick={changeIcon}>
+              <img src={`images/icon-${hamburgerIcon}.svg`} alt={alt}/>
+            </button>
+          </li>
+          <li id="logo">
+            <div className="logo">
+              <img src="images/logo.svg" alt="sneakers-company-logo" />
+            </div>
+          </li>
+          <li>Collections</li>
+          <li>Men</li>
+          <li>Women</li>
+          <li>About</li>
+          <li>Contact</li>
+          <li className="ml">
+            <div className="cart">
+              <img
+                src="images/icon-cart.svg"
+                alt="cart-icon"
+                onClick={toggleCheckout}
+              />
+            </div>
+            <span className="cart-items">{props.cart}</span>
+          </li>
+          <li id="avatar">
+            <div className="avatar">
+              <img src="images/image-avatar.png" alt="avatar" />
+            </div>
+          </li>
+        </ul>
       </nav>
       <div className={`checkout ${isCheckoutVisible}`}>
         <span>Cart</span>

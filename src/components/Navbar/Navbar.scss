@@ -22,7 +22,9 @@ img {
         @content
     }
 }
-
+ul{
+    list-style: none;
+}
 .navbar {
     // border: 2px solid blue;
     border-bottom: 1px solid $Grayish-blue;

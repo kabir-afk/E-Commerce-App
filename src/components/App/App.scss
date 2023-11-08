@@ -3,7 +3,9 @@
 *::before {
     box-sizing: border-box;
 }
-
+html{
+    overflow: hidden;
+}
 body{
     height: 100vh;
     font-family: 'Kumbh Sans', sans-serif;
