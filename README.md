@@ -51,6 +51,7 @@ Users should be able to:
 - Del button doesn't work , I'm working on how to trigger and manage reset states. 
 - Site isn't completely responsive and fails to provide a good UX at many places (was too tired at this point).
 - Cart checkout fucntinality doesn't update simultaneously , cart icon has to be toggled again.
+- Couldn't trigger hover states, dk why.
 - Lightbox gallery isn't perfect , but okay-ish at best . . .
 
 ## Author
