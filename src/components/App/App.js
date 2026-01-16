@@ -7,11 +7,14 @@ function App() {
   const addToCart = (a) => {
     setCartItems(a.numberOfItems);
   };
+  const handleDelete = () => {
+    setCartItems(0);
+  };
   return (
     <>
-      <Navbar cart={cartItems} />
+      <Navbar cart={cartItems} handleDelete={handleDelete} />
       <main>
-        <Container addToCart={addToCart}></Container>
+        <Container addToCart={addToCart} />
       </main>
     </>
   );
