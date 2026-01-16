@@ -1,149 +1,79 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Hero.css";
+import LightBox from "./LightBox";
 
 function Hero(props) {
-  let [numberOfItems, setNumberOfItems] = useState(0);
-  let [prodImg, setProdImg] = useState("images/image-product-1.jpg");
-  let [altOfProdImg, setAltOfProdImg] = useState("prod-1");
-  let [counter, setCounter] = useState(0);
-  let [hide, setHide] = useState("hide");
-
-  const lightboxProducts = document.querySelectorAll(".lightbox-product");
-
-  function increase() {
-    setNumberOfItems(numberOfItems + 1);
-  }
-  function decrease() {
-    if (numberOfItems === 0) {
-      setNumberOfItems(0);
-    } else {
-      setNumberOfItems(numberOfItems - 1);
-    }
-  }
-  function changeImage(e) {
-    setProdImg(`images/image-product-${e.target.id}.jpg`);
-    setAltOfProdImg(`prod-${e.target.id}`);
-  }
-
-  function openLightboxGallery() {
-    setHide("unhide");
-  }
-  function closeLightboxGallery() {
-    setHide("hide");
-  }
-  function slideImage() {
-    lightboxProducts.forEach((lightboxProduct) => {
-      lightboxProduct.style.transform = `translateX(-${counter * 100}%)`;
-    });
-  }
-  function nextImage() {
-    setCounter(counter + 1);
-    if (counter === 4) {
-      setCounter(0);
-    } else {
-      slideImage();
-    }
-  }
-  function previousImage() {
-    setCounter(counter - 1);
-    if (counter === -1) {
-      setCounter(3);
-    } else {
-      slideImage();
-    }
-  }
+  const [numberOfItems, setNumberOfItems] = useState(0);
+  const [imgIndex, setImgIndex] = useState(1);
+  const [lightBoxImgIndex, setLightBoxImgIndex] = useState(1);
+  const [hide, setHide] = useState(false);
   return (
     <div className="hero-container">
-      <div className={`overlay ${hide}`}>
-        <div className="lightbox-flex">
-          <img
-            src="images/icon-close.svg"
-            alt="cross-icon"
-            onClick={closeLightboxGallery}
-          />
-          <button onClick={previousImage}>
-            <img src="images/icon-previous.svg" alt="previous-icon" />
-          </button>
-          <div className="product-container">
-            <div className="lightbox-product">
-              <img src="images/image-product-1.jpg" alt="prod-1" />
-            </div>
-            <div className="lightbox-product">
-              <img src="images/image-product-2.jpg" alt="prod-2" />
-            </div>
-            <div className="lightbox-product">
-              <img src="images/image-product-3.jpg" alt="prod-3" />
-            </div>
-            <div className="lightbox-product">
-              <img src="images/image-product-4.jpg" alt="prod-4" />
-            </div>
-          </div>
-          <button onClick={nextImage}>
-            <img src="images/icon-next.svg" alt="next-icon" />
-          </button>
-        </div>
-      </div>
+      {hide && (
+        <LightBox
+          hideLightBox={() => setHide(false)}
+          index={lightBoxImgIndex}
+        />
+      )}
 
       <div className="sneaker-flex">
-        <button onClick={previousImage}>
-          <img src="images/icon-previous.svg" alt="previous-icon" />
+        <button
+          onClick={() =>
+            setImgIndex((prev) => {
+              if (prev === 1) {
+                return 4;
+              }
+              return prev - 1;
+            })
+          }
+        >
+          <img src="/images/icon-previous.svg" alt="previous-icon" />
         </button>
-        <button onClick={nextImage}>
-          <img src="images/icon-next.svg" alt="next-icon" />
+        <button
+          onClick={() =>
+            setImgIndex((prev) => {
+              if (prev === 4) {
+                return 1;
+              }
+              return prev + 1;
+            })
+          }
+        >
+          <img src="/images/icon-next.svg" alt="next-icon" />
         </button>
         <div className="product-container">
-          <div className="lightbox-product">
-            <img src="images/image-product-1.jpg" alt="prod-1" />
-          </div>
-          <div className="lightbox-product">
-            <img src="images/image-product-2.jpg" alt="prod-2" />
-          </div>
-          <div className="lightbox-product">
-            <img src="images/image-product-3.jpg" alt="prod-3" />
-          </div>
-          <div className="lightbox-product">
-            <img src="images/image-product-4.jpg" alt="prod-4" />
-          </div>
+          {Array.from({ length: 4 }, (index) => (
+            <div className="lightbox-product" key={index}>
+              <img
+                src={`images/image-product-${imgIndex}.jpg`}
+                alt={`prod-${imgIndex}`}
+              />
+            </div>
+          ))}
         </div>
       </div>
 
       <div className="sneaker-preview">
-        <div className="product" onClick={openLightboxGallery}>
-          <img src={prodImg} alt={altOfProdImg} />
+        <div className="product" onClick={() => setHide(true)}>
+          <img
+            src={`/images/image-product-${imgIndex}.jpg`}
+            alt={`prod-${imgIndex}`}
+          />
         </div>
         <div className="thumbnail-flex">
-          <button className="thumbnail">
-            <img
-              src="images/image-product-1-thumbnail.jpg"
-              alt="product-1-thumbnail"
-              id="1"
-              onClick={changeImage}
-            />
-          </button>
-          <button className="thumbnail">
-            <img
-              src="images/image-product-2-thumbnail.jpg"
-              alt="product-2-thumbnail"
-              id="2"
-              onClick={changeImage}
-            />
-          </button>
-          <button className="thumbnail">
-            <img
-              src="images/image-product-3-thumbnail.jpg"
-              alt="product-3-thumbnail"
-              id="3"
-              onClick={changeImage}
-            />
-          </button>
-          <button className="thumbnail">
-            <img
-              src="images/image-product-4-thumbnail.jpg"
-              alt="product-4-thumbnail"
-              id="4"
-              onClick={changeImage}
-            />
-          </button>
+          {Array.from({ length: 4 }, (_, index) => (
+            <button className="thumbnail" key={index}>
+              <img
+                src={`/images/image-product-${index + 1}-thumbnail.jpg`}
+                alt={`product-${index + 1}-thumbnail`}
+                id={index}
+                onClick={() => {
+                  setImgIndex(index + 1);
+                  setLightBoxImgIndex(index + 1);
+                }}
+              />
+            </button>
+          ))}
         </div>
       </div>
       <div className="sneaker-description">
@@ -162,19 +92,23 @@ function Hero(props) {
         </div>
         <div className="flex">
           <div className="numOfItems">
-            <button onClick={decrease}>
-              <img src="images/icon-minus.svg" alt="minus-icon" />
+            <button
+              onClick={() => setNumberOfItems((prev) => prev - 1)}
+              disabled={numberOfItems === 0}
+              className={numberOfItems === 0 ? "cursor-not-allowed" : ""}
+            >
+              <img src="/images/icon-minus.svg" alt="minus-icon" />
             </button>{" "}
             {numberOfItems}
-            <button onClick={increase}>
-              <img src="images/icon-plus.svg" alt="plus-icon" />
+            <button onClick={() => setNumberOfItems((prev) => prev + 1)}>
+              <img src="/images/icon-plus.svg" alt="plus-icon" />
             </button>
           </div>
           <button
             className="addToCart"
             onClick={() => props.addToCart({ numberOfItems })}
           >
-            <img src="images/icon-cart.svg" alt="cart-icon" /> Add to cart
+            <img src="/images/icon-cart.svg" alt="cart-icon" /> Add to cart
           </button>
         </div>
       </div>
