@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Hero.css";
 import LightBox from "./LightBox";
 
@@ -6,12 +6,25 @@ function Hero(props) {
   const [numberOfItems, setNumberOfItems] = useState(0);
   const [imgIndex, setImgIndex] = useState(1);
   const [lightBoxImgIndex, setLightBoxImgIndex] = useState(1);
-  const [hide, setHide] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  useEffect(() => {
+    setVisible((prev) => {
+      if (screenWidth <= 775 && prev === true) {
+        return false;
+      }
+    });
+  }, [screenWidth]);
   return (
     <div className="hero-container">
-      {hide && (
+      {visible && (
         <LightBox
-          hideLightBox={() => setHide(false)}
+          hideLightBox={() => setVisible(false)}
           index={lightBoxImgIndex}
         />
       )}
@@ -54,7 +67,7 @@ function Hero(props) {
       </div>
 
       <div className="sneaker-preview">
-        <div className="product" onClick={() => setHide(true)}>
+        <div className="product" onClick={() => setVisible(true)}>
           <img
             src={`/images/image-product-${imgIndex}.jpg`}
             alt={`prod-${imgIndex}`}
